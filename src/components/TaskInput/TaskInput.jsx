@@ -1,7 +1,7 @@
 import "./TaskInput.css";
 import { useState } from "react";
 
-function TaskInput() {
+function TaskInput({ onAddTask }) {
   const [task, setTask] = useState("");
 
   const setTaskName = (e) => {
@@ -9,7 +9,9 @@ function TaskInput() {
   };
 
   const handleCreateBtn = () => {
-    console.log(task);
+    if (!task.trim()) return;
+
+    onAddTask(task);
     setTask("");
   };
   return (

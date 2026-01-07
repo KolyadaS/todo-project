@@ -33,11 +33,19 @@ function App() {
     );
   };
 
+  const removeTask = (id) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
+  };
+
   return (
     <Layout>
       <Header></Header>
       <Main>
-        <TodayView tasks={tasks} onToggleTask={toggleTask}>
+        <TodayView
+          tasks={tasks}
+          onToggleTask={toggleTask}
+          onRemoveTask={removeTask}
+        >
           <TaskInput onAddTask={addTask}></TaskInput>
         </TodayView>
         <NotTodayView></NotTodayView>

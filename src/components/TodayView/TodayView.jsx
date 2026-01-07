@@ -6,7 +6,15 @@ function TodayView({ tasks, children }) {
       <h2>Сегодня</h2>
 
       {tasks.map((task) => (
-        <div key={task.id}>{task.text}</div>
+        <div key={task.id}>
+          <input
+            id={`task-${task.id}`}
+            type="checkbox"
+            checked={task.complited}
+            onChange={() => onToggleTask(task.id)}
+          />
+          <label htmlFor={`task-${task.id}`}>{task.text}</label>
+        </div>
       ))}
 
       {children}

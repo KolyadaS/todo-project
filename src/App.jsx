@@ -25,11 +25,19 @@ function App() {
     });
   };
 
+  const toggleTask = (id) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
   return (
     <Layout>
       <Header></Header>
       <Main>
-        <TodayView tasks={tasks}>
+        <TodayView tasks={tasks} onToggleTask={toggleTask}>
           <TaskInput onAddTask={addTask}></TaskInput>
         </TodayView>
         <NotTodayView></NotTodayView>

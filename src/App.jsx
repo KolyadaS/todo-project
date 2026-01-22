@@ -12,17 +12,10 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const addTask = (text) => {
-    setTasks((prev) => {
-      const newTasks = {
-        id: Date.now(),
-        text: text,
-        completed: false,
-      };
-
-      const newArray = [...prev, newTasks];
-
-      return newArray;
-    });
+    setTasks((prev) => [
+      ...prev,
+      { id: Date.now(), text: text, completed: false },
+    ]);
   };
 
   const toggleTask = (id) => {
@@ -37,19 +30,26 @@ function App() {
     setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
+  const todayTasks = tasks.filter((task) => !task.completed);
+  const doneTasks = tasks.filter((task) => task.completed);
+
   return (
     <Layout>
       <Header></Header>
       <Main>
         <TodayView
-          tasks={tasks}
+          tasks={todayTasks}
           onToggleTask={toggleTask}
           onRemoveTask={removeTask}
         >
           <TaskInput onAddTask={addTask}></TaskInput>
         </TodayView>
         <NotTodayView></NotTodayView>
-        <DoneView></DoneView>
+        <DoneView
+          tasks={doneTasks}
+          onToggleTask={toggleTask}
+          onRemoveTask={removeTask}
+        ></DoneView>
       </Main>
     </Layout>
   );

@@ -1,4 +1,4 @@
-import TaskItem from "../TaskItem/TaskItem";
+import TaskList from "../TaskList/TaskList";
 import "./TodayView.css";
 
 function TodayView({ tasks, onToggleTask, onRemoveTask, children }) {
@@ -6,13 +6,12 @@ function TodayView({ tasks, onToggleTask, onRemoveTask, children }) {
     <div className="today-view">
       <h2>Сегодня</h2>
 
-      {tasks.map((task) => (
-        <TaskItem
-          task={task}
-          onToggleTask={onToggleTask}
-          onRemoveTask={onRemoveTask}
-        ></TaskItem>
-      ))}
+      <TaskList
+        tasks={tasks.filter((task) => !task.completed)}
+        onToggleTask={onToggleTask}
+        onRemoveTask={onRemoveTask}
+        emptyText="На сегодня задач нет"
+      ></TaskList>
 
       {children}
     </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import DoneView from "./components/DoneView/DoneView";
 import NotTodayView from "./components/NotTodayView/NotTodayView";
@@ -9,7 +9,14 @@ import Main from "./layouts/Main/Main";
 import Layout from "./layouts/MainLayout/Layout";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const stored = localStorage.getItem("tasks");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = (text) => {
     setTasks((prev) => [

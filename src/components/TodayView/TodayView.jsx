@@ -1,7 +1,7 @@
 import TaskList from "../TaskList/TaskList";
 import "./TodayView.css";
 
-function TodayView({ tasks, onToggleTask, onRemoveTask, children }) {
+function TodayView({ tasks, onToggleTask, onRemoveTask, onUpdate, children }) {
   return (
     <div className="today-view">
       <h2>Сегодня</h2>
@@ -11,6 +11,7 @@ function TodayView({ tasks, onToggleTask, onRemoveTask, children }) {
         onToggleTask={onToggleTask}
         onRemoveTask={onRemoveTask}
         emptyText="На сегодня задач нет"
+        onUpdate={onUpdate}
       ></TaskList>
 
       {children}

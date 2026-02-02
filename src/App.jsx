@@ -37,6 +37,12 @@ function App() {
     setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
+  const updateTaskText = (id, newText) => {
+    setTasks((prev) =>
+      prev.map((task) => (task.id === id ? { ...task, text: newText } : task))
+    );
+  };
+
   const todayTasks = tasks.filter((task) => !task.completed);
   const doneTasks = tasks.filter((task) => task.completed);
 
@@ -48,6 +54,7 @@ function App() {
           tasks={todayTasks}
           onToggleTask={toggleTask}
           onRemoveTask={removeTask}
+          onUpdate={updateTaskText}
         >
           <TaskInput onAddTask={addTask}></TaskInput>
         </TodayView>

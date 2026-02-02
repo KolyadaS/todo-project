@@ -43,6 +43,10 @@ function App() {
     );
   };
 
+  const clearCompleted = () => {
+    setTasks((prev) => prev.filter((task) => !task.completed));
+  };
+
   const todayTasks = tasks.filter((task) => !task.completed);
   const doneTasks = tasks.filter((task) => task.completed);
 
@@ -63,6 +67,7 @@ function App() {
           tasks={doneTasks}
           onToggleTask={toggleTask}
           onRemoveTask={removeTask}
+          onClearCompleted={clearCompleted}
         ></DoneView>
       </Main>
     </Layout>

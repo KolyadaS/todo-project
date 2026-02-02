@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import DoneView from "./components/DoneView/DoneView";
 import NotTodayView from "./components/NotTodayView/NotTodayView";
 import TaskInput from "./components/TaskInput/TaskInput";
-import TodayView from "./components/TodayView/TodayView";
 import Header from "./layouts/Header/Header";
 import Main from "./layouts/Main/Main";
 import Layout from "./layouts/MainLayout/Layout";
+import TaskView from "./components/TaskView/TaskView";
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -47,28 +46,31 @@ function App() {
     setTasks((prev) => prev.filter((task) => !task.completed));
   };
 
-  const todayTasks = tasks.filter((task) => !task.completed);
-  const doneTasks = tasks.filter((task) => task.completed);
-
   return (
     <Layout>
       <Header></Header>
       <Main>
-        <TodayView
-          tasks={todayTasks}
+        <TaskView
+          title="Сегодня"
+          tasks={tasks}
+          filter="active"
           onToggleTask={toggleTask}
           onRemoveTask={removeTask}
           onUpdate={updateTaskText}
         >
           <TaskInput onAddTask={addTask}></TaskInput>
-        </TodayView>
+        </TaskView>
+
         <NotTodayView></NotTodayView>
-        <DoneView
-          tasks={doneTasks}
+
+        <TaskView
+          title="Готово"
+          tasks={tasks}
+          filter="completed"
           onToggleTask={toggleTask}
           onRemoveTask={removeTask}
           onClearCompleted={clearCompleted}
-        ></DoneView>
+        ></TaskView>
       </Main>
     </Layout>
   );

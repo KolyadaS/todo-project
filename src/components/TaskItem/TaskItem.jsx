@@ -1,7 +1,13 @@
 import { useState } from "react";
 import "./TaskItem.css";
 
-function TaskItem({ task, onToggleTask, onRemoveTask, onUpdate }) {
+function TaskItem({
+  task,
+  onToggleTask,
+  onRemoveTask,
+  onUpdate,
+  editable = true,
+}) {
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(task.text);
 
@@ -26,7 +32,7 @@ function TaskItem({ task, onToggleTask, onRemoveTask, onUpdate }) {
       />
       {/* <label htmlFor={`task-${task.id}`}>{task.text}</label> */}
 
-      {isEditing ? (
+      {isEditing && editable ? (
         <input
           value={value}
           autoFocus
@@ -40,7 +46,7 @@ function TaskItem({ task, onToggleTask, onRemoveTask, onUpdate }) {
       ) : (
         <span
           onDoubleClick={() => {
-            if (!task.completed) {
+            if (editable) {
               setIsEditing(true);
             }
           }}

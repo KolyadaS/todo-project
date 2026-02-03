@@ -10,7 +10,17 @@ import TaskView from "./components/TaskView/TaskView";
 function App() {
   const [tasks, setTasks] = useState(() => {
     const stored = localStorage.getItem("tasks");
-    return stored ? JSON.parse(stored) : [];
+    if (!stored) return [];
+    const parsed = JSON.parse(stored);
+
+    return parsed.map((task) => {
+      if ("status" in task) return task;
+
+      return {
+        ...task,
+        status: task.completed ? "completed" : "active",
+      };
+    });
   });
 
   useEffect(() => {
@@ -20,15 +30,20 @@ function App() {
   const addTask = (text) => {
     setTasks((prev) => [
       ...prev,
-      { id: Date.now(), text: text, completed: false },
+      { id: Date.now(), text: text, status: "active" },
     ]);
   };
 
-  const toggleTask = (id) => {
+  // const toggleTask = (id) => {
+  //   setTasks((prev) =>
+  //     prev.map((task) =>
+  //       task.id === id ? { ...task, completed: !task.completed } : task
+  //     )
+  //   );
+  // };
+  const updateTaskStatus = (id, status) => {
     setTasks((prev) =>
-      prev.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
+      prev.map((task) => (task.id === id ? { ...task, status } : task))
     );
   };
 
@@ -54,7 +69,8 @@ function App() {
           title="Сегодня"
           tasks={tasks}
           filter="active"
-          onToggleTask={toggleTask}
+          // onToggleTask={toggleTask}
+          onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
           onUpdate={updateTaskText}
         >
@@ -67,7 +83,8 @@ function App() {
           title="Готово"
           tasks={tasks}
           filter="completed"
-          onToggleTask={toggleTask}
+          // onToggleTask={toggleTask}
+          onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
           onClearCompleted={clearCompleted}
         ></TaskView>

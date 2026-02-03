@@ -3,9 +3,10 @@ import "./TaskList.css";
 
 function TaskList({
   tasks,
-  onToggleTask,
+  // onToggleTask,
   onRemoveTask,
   onUpdate,
+  onUpdateTaskStatus,
   emptyText,
   editable = true,
 }) {
@@ -19,7 +20,8 @@ function TaskList({
         <TaskItem
           key={task.id}
           task={task}
-          onToggleTask={onToggleTask}
+          // onToggleTask={onToggleTask}
+          onUpdateTaskStatus={onUpdateTaskStatus}
           onRemoveTask={onRemoveTask}
           onUpdate={onUpdate}
           editable={editable}

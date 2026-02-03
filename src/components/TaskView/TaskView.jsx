@@ -5,17 +5,14 @@ function TaskView({
   title,
   tasks,
   filter,
-  onToggleTask,
+  // onToggleTask,
   onRemoveTask,
   onUpdate,
   onClearCompleted,
+  onUpdateTaskStatus,
   children,
 }) {
-  const filteredTasks = tasks.filter((task) => {
-    if (filter === "active") return !task.completed;
-    if (filter === "completed") return task.completed;
-    return true;
-  });
+  const filteredTasks = tasks.filter((task) => task.status === filter);
 
   return (
     <div className="task-view">
@@ -27,7 +24,8 @@ function TaskView({
 
       <TaskList
         tasks={filteredTasks}
-        onToggleTask={onToggleTask}
+        // onToggleTask={onToggleTask}
+        onUpdateTaskStatus={onUpdateTaskStatus}
         onRemoveTask={onRemoveTask}
         editable={filter === "active"}
         emptyText={

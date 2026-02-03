@@ -3,9 +3,10 @@ import "./TaskItem.css";
 
 function TaskItem({
   task,
-  onToggleTask,
+  // onToggleTask,
   onRemoveTask,
   onUpdate,
+  onUpdateTaskStatus,
   editable = true,
 }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -27,8 +28,13 @@ function TaskItem({
       <input
         id={`task-${task.id}`}
         type="checkbox"
-        checked={task.completed}
-        onChange={() => onToggleTask(task.id)}
+        checked={task.status === "completed"}
+        onChange={() =>
+          onUpdateTaskStatus(
+            task.id,
+            task.status === "completed" ? "active" : "completed"
+          )
+        }
       />
       {/* <label htmlFor={`task-${task.id}`}>{task.text}</label> */}
 

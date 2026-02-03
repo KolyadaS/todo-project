@@ -34,13 +34,6 @@ function App() {
     ]);
   };
 
-  // const toggleTask = (id) => {
-  //   setTasks((prev) =>
-  //     prev.map((task) =>
-  //       task.id === id ? { ...task, completed: !task.completed } : task
-  //     )
-  //   );
-  // };
   const updateTaskStatus = (id, status) => {
     setTasks((prev) =>
       prev.map((task) => (task.id === id ? { ...task, status } : task))
@@ -69,7 +62,6 @@ function App() {
           title="Сегодня"
           tasks={tasks}
           filter="active"
-          // onToggleTask={toggleTask}
           onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
           onUpdate={updateTaskText}
@@ -78,12 +70,18 @@ function App() {
         </TaskView>
 
         <NotTodayView></NotTodayView>
+        <TaskView
+          title="Не сегодня"
+          tasks={tasks}
+          filter="later"
+          onUpdateTaskStatus={updateTaskStatus}
+          onRemoveTask={removeTask}
+        ></TaskView>
 
         <TaskView
           title="Готово"
           tasks={tasks}
           filter="completed"
-          // onToggleTask={toggleTask}
           onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
           onClearCompleted={clearCompleted}

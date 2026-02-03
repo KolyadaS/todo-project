@@ -61,6 +61,12 @@ function TaskItem({
         </span>
       )}
 
+      {task.status === "active" && (
+        <button onClick={() => onUpdateTaskStatus(task.id, "later")}>
+          Не сегодня
+        </button>
+      )}
+
       <button onClick={() => onRemoveTask(task.id)}>Удалить</button>
     </div>
   );

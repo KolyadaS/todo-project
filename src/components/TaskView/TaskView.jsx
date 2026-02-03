@@ -18,9 +18,10 @@ function TaskView({
     <div className="task-view">
       <h2>{title}</h2>
 
-      {filter === "completed" && tasks.some((task) => task.completed) && (
-        <button onClick={onClearCompleted}>Удалить выполненные</button>
-      )}
+      {filter === "completed" &&
+        tasks.some((task) => task.status === "completed") && (
+          <button onClick={onClearCompleted}>Удалить выполненные</button>
+        )}
 
       <TaskList
         tasks={filteredTasks}

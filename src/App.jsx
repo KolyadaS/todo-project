@@ -58,7 +58,7 @@ function App() {
   };
 
   const clearCompleted = () => {
-    setTasks((prev) => prev.filter((task) => !task.completed));
+    setTasks((prev) => prev.filter((task) => task.status !== "completed"));
   };
 
   return (

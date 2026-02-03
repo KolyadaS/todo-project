@@ -3,7 +3,6 @@ import "./TaskList.css";
 
 function TaskList({
   tasks,
-  // onToggleTask,
   onRemoveTask,
   onUpdate,
   onUpdateTaskStatus,
@@ -20,7 +19,6 @@ function TaskList({
         <TaskItem
           key={task.id}
           task={task}
-          // onToggleTask={onToggleTask}
           onUpdateTaskStatus={onUpdateTaskStatus}
           onRemoveTask={onRemoveTask}
           onUpdate={onUpdate}

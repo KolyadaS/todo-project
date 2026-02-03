@@ -3,7 +3,6 @@ import "./TaskItem.css";
 
 function TaskItem({
   task,
-  // onToggleTask,
   onRemoveTask,
   onUpdate,
   onUpdateTaskStatus,

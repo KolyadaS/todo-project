@@ -5,7 +5,6 @@ function TaskView({
   title,
   tasks,
   filter,
-  // onToggleTask,
   onRemoveTask,
   onUpdate,
   onClearCompleted,
@@ -25,7 +24,6 @@ function TaskView({
 
       <TaskList
         tasks={filteredTasks}
-        // onToggleTask={onToggleTask}
         onUpdateTaskStatus={onUpdateTaskStatus}
         onRemoveTask={onRemoveTask}
         editable={filter === "active"}

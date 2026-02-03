@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import NotTodayView from "./components/NotTodayView/NotTodayView";
 import TaskInput from "./components/TaskInput/TaskInput";
 import Header from "./layouts/Header/Header";
 import Main from "./layouts/Main/Main";
@@ -69,7 +68,6 @@ function App() {
           <TaskInput onAddTask={addTask}></TaskInput>
         </TaskView>
 
-        <NotTodayView></NotTodayView>
         <TaskView
           title="Не сегодня"
           tasks={tasks}

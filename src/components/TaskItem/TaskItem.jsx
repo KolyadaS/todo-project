@@ -35,7 +35,6 @@ function TaskItem({
           )
         }
       />
-      {/* <label htmlFor={`task-${task.id}`}>{task.text}</label> */}
 
       {isEditing && editable ? (
         <input

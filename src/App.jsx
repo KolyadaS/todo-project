@@ -87,23 +87,6 @@ function App() {
             <TaskInput onAddTask={addTask}></TaskInput>
           )}
         </TaskView>
-
-        {/* <TaskView
-          title="Не сегодня"
-          tasks={tasks}
-          filter="later"
-          onUpdateTaskStatus={updateTaskStatus}
-          onRemoveTask={removeTask}
-        ></TaskView> */}
-
-        {/* <TaskView
-          title="Готово"
-          tasks={tasks}
-          filter="completed"
-          onUpdateTaskStatus={updateTaskStatus}
-          onRemoveTask={removeTask}
-          onClearCompleted={clearCompleted}
-        ></TaskView> */}
       </Main>
     </Layout>
   );

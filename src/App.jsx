@@ -6,6 +6,7 @@ import Main from "./layouts/Main/Main";
 import Layout from "./layouts/MainLayout/Layout";
 import TaskView from "./components/TaskView/TaskView";
 import { TASK_STATUS } from "../src/constants/taskStatus";
+import ViewSwitcher from "./components/ViewSwitcher/ViewSwitcher";
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -68,11 +69,10 @@ function App() {
     <Layout>
       <Header></Header>
       <Main>
-        <div>
-          <button onClick={() => setCurrentView("today")}>Сегодня</button>
-          <button onClick={() => setCurrentView("later")}>Не сегодня</button>
-          <button onClick={() => setCurrentView("completed")}>Готово</button>
-        </div>
+        <ViewSwitcher
+          currentView={currentView}
+          onChange={setCurrentView}
+        ></ViewSwitcher>
 
         <TaskView
           title={viewTitles[currentView]}

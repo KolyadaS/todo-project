@@ -17,7 +17,7 @@ function App() {
 
       return {
         ...task,
-        status: task.completed ? "completed" : "active",
+        status: task.completed ? "completed" : "today",
       };
     });
   });
@@ -26,10 +26,12 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+  const [currentView, setCurrentView] = useState("today");
+
   const addTask = (text) => {
     setTasks((prev) => [
       ...prev,
-      { id: Date.now(), text: text, status: "active" },
+      { id: Date.now(), text: text, status: "today" },
     ]);
   };
 
@@ -53,37 +55,51 @@ function App() {
     setTasks((prev) => prev.filter((task) => task.status !== "completed"));
   };
 
+  const viewTitles = {
+    today: "Сегодня",
+    later: "Не сегодня",
+    completed: "Готово",
+  };
+
   return (
     <Layout>
       <Header></Header>
       <Main>
+        <div>
+          <button onClick={() => setCurrentView("today")}>Сегодня</button>
+          <button onClick={() => setCurrentView("later")}>Не сегодня</button>
+          <button onClick={() => setCurrentView("completed")}>Готово</button>
+        </div>
+
         <TaskView
-          title="Сегодня"
+          title={viewTitles[currentView]}
           tasks={tasks}
-          filter="active"
+          filter={currentView}
           onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
           onUpdate={updateTaskText}
         >
-          <TaskInput onAddTask={addTask}></TaskInput>
+          {currentView !== "completed" && (
+            <TaskInput onAddTask={addTask}></TaskInput>
+          )}
         </TaskView>
 
-        <TaskView
+        {/* <TaskView
           title="Не сегодня"
           tasks={tasks}
           filter="later"
           onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
-        ></TaskView>
+        ></TaskView> */}
 
-        <TaskView
+        {/* <TaskView
           title="Готово"
           tasks={tasks}
           filter="completed"
           onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
           onClearCompleted={clearCompleted}
-        ></TaskView>
+        ></TaskView> */}
       </Main>
     </Layout>
   );

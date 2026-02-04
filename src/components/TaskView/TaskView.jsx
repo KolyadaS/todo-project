@@ -24,11 +24,12 @@ function TaskView({
 
       <TaskList
         tasks={filteredTasks}
+        active
         onUpdateTaskStatus={onUpdateTaskStatus}
         onRemoveTask={onRemoveTask}
-        editable={filter === "active"}
+        editable={filter === "today"}
         emptyText={
-          filter === "active"
+          filter === "today"
             ? "На сегодня задач нет"
             : "Пока ничего не выполнено"
         }

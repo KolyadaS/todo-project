@@ -31,7 +31,7 @@ function TaskItem({
         onChange={() =>
           onUpdateTaskStatus(
             task.id,
-            task.status === "completed" ? "active" : "completed"
+            task.status === "completed" ? "today" : "completed"
           )
         }
       />
@@ -60,7 +60,7 @@ function TaskItem({
         </span>
       )}
 
-      {task.status === "active" && (
+      {task.status === "today" && (
         <button onClick={() => onUpdateTaskStatus(task.id, "later")}>
           Не сегодня
         </button>

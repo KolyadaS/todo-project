@@ -1,5 +1,6 @@
 import "./TaskView.css";
 import TaskList from "../TaskList/TaskList";
+import { TASK_STATUS } from "../../constants/taskStatus";
 
 function TaskView({
   title,
@@ -17,8 +18,8 @@ function TaskView({
     <div className="task-view">
       <h2>{title}</h2>
 
-      {filter === "completed" &&
-        tasks.some((task) => task.status === "completed") && (
+      {filter === TASK_STATUS.COMPLETED &&
+        tasks.some((task) => task.status === TASK_STATUS.COMPLETED) && (
           <button onClick={onClearCompleted}>Удалить выполненные</button>
         )}
 

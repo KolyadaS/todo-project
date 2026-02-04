@@ -5,6 +5,7 @@ import Header from "./layouts/Header/Header";
 import Main from "./layouts/Main/Main";
 import Layout from "./layouts/MainLayout/Layout";
 import TaskView from "./components/TaskView/TaskView";
+import { TASK_STATUS } from "../src/constants/taskStatus";
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -17,7 +18,7 @@ function App() {
 
       return {
         ...task,
-        status: task.completed ? "completed" : "today",
+        status: task.completed ? TASK_STATUS.COMPLETED : TASK_STATUS.TODAY,
       };
     });
   });
@@ -26,12 +27,12 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  const [currentView, setCurrentView] = useState("today");
+  const [currentView, setCurrentView] = useState(TASK_STATUS.TODAY);
 
   const addTask = (text) => {
     setTasks((prev) => [
       ...prev,
-      { id: Date.now(), text: text, status: "today" },
+      { id: Date.now(), text: text, status: TASK_STATUS.TODAY },
     ]);
   };
 
@@ -52,13 +53,15 @@ function App() {
   };
 
   const clearCompleted = () => {
-    setTasks((prev) => prev.filter((task) => task.status !== "completed"));
+    setTasks((prev) =>
+      prev.filter((task) => task.status !== TASK_STATUS.COMPLETED)
+    );
   };
 
   const viewTitles = {
-    today: "Сегодня",
-    later: "Не сегодня",
-    completed: "Готово",
+    [TASK_STATUS.TODAY]: "Сегодня",
+    [TASK_STATUS.LATER]: "Не сегодня",
+    [TASK_STATUS.COMPLETED]: "Готово",
   };
 
   return (
@@ -78,8 +81,9 @@ function App() {
           onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
           onUpdate={updateTaskText}
+          onClearCompleted={clearCompleted}
         >
-          {currentView !== "completed" && (
+          {currentView !== TASK_STATUS.COMPLETED && (
             <TaskInput onAddTask={addTask}></TaskInput>
           )}
         </TaskView>

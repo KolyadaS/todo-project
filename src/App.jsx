@@ -30,6 +30,8 @@ function App() {
 
   const [currentView, setCurrentView] = useState(TASK_STATUS.TODAY);
 
+  const visibleTasks = tasks.filter((task) => task.status === currentView);
+
   const addTask = (text) => {
     setTasks((prev) => [
       ...prev,
@@ -76,14 +78,14 @@ function App() {
 
         <TaskView
           title={viewTitles[currentView]}
-          tasks={tasks}
-          filter={currentView}
+          tasks={visibleTasks}
+          view={currentView}
           onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
           onUpdate={updateTaskText}
           onClearCompleted={clearCompleted}
         >
-          {currentView !== TASK_STATUS.COMPLETED && (
+          {currentView === TASK_STATUS.TODAY && (
             <TaskInput onAddTask={addTask}></TaskInput>
           )}
         </TaskView>

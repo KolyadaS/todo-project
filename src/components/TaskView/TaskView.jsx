@@ -5,34 +5,33 @@ import { TASK_STATUS } from "../../constants/taskStatus";
 function TaskView({
   title,
   tasks,
-  filter,
+  view,
   onRemoveTask,
   onUpdate,
   onClearCompleted,
   onUpdateTaskStatus,
   children,
 }) {
-  const filteredTasks = tasks.filter((task) => task.status === filter);
-
   return (
     <div className="task-view">
       <h2>{title}</h2>
 
-      {filter === TASK_STATUS.COMPLETED &&
-        tasks.some((task) => task.status === TASK_STATUS.COMPLETED) && (
-          <button onClick={onClearCompleted}>Удалить выполненные</button>
-        )}
+      {view === TASK_STATUS.COMPLETED && tasks.length > 0 && (
+        <button onClick={onClearCompleted}>Удалить выполненные</button>
+      )}
 
       <TaskList
-        tasks={filteredTasks}
+        tasks={tasks}
         active
         onUpdateTaskStatus={onUpdateTaskStatus}
         onRemoveTask={onRemoveTask}
-        editable={filter === "today"}
+        editable={view === TASK_STATUS.TODAY}
         emptyText={
-          filter === "today"
+          view === TASK_STATUS.TODAY
             ? "На сегодня задач нет"
-            : "Пока ничего не выполнено"
+            : view === TASK_STATUS.COMPLETED
+            ? "Пока ничего не выполнено"
+            : "Задач нет"
         }
         onUpdate={onUpdate}
       ></TaskList>

@@ -7,6 +7,7 @@ export const VIEW_CONFIG = {
     showInput: true,
     showClearCompleted: false,
     editable: true,
+    actions: ["moveToLater"],
   },
   [TASK_STATUS.LATER]: {
     title: "Не сегодня",
@@ -14,12 +15,14 @@ export const VIEW_CONFIG = {
     showInput: false,
     showClearCompleted: false,
     editable: true,
+    actions: ["moveToToday"],
   },
   [TASK_STATUS.COMPLETED]: {
     title: "Готово",
     emptyText: "Пока ничего не выполнено",
     showInput: false,
     showClearCompleted: true,
-    editable: true,
+    editable: false,
+    actions: [],
   },
 };

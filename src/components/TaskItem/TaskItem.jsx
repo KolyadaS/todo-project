@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./TaskItem.css";
+import { TASK_STATUS } from "../../constants/taskStatus";
 
 function TaskItem({
   task,
+  actions,
   onRemoveTask,
   onUpdate,
   onUpdateTaskStatus,
-  editable = true,
+  editable,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(task.text);
@@ -23,15 +25,17 @@ function TaskItem({
   };
 
   return (
-    <div className="task-item">
+    <li className="task-item">
       <input
         id={`task-${task.id}`}
         type="checkbox"
-        checked={task.status === "completed"}
+        checked={task.status === TASK_STATUS.COMPLETED}
         onChange={() =>
           onUpdateTaskStatus(
             task.id,
-            task.status === "completed" ? "today" : "completed"
+            task.status === TASK_STATUS.COMPLETED
+              ? TASK_STATUS.TODAY
+              : TASK_STATUS.COMPLETED
           )
         }
       />
@@ -59,14 +63,20 @@ function TaskItem({
         </span>
       )}
 
-      {task.status === "today" && (
-        <button onClick={() => onUpdateTaskStatus(task.id, "later")}>
+      {actions.includes("moveToLater") && (
+        <button onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.LATER)}>
           Не сегодня
         </button>
       )}
 
+      {actions.includes("moveToToday") && (
+        <button onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.TODAY)}>
+          Сегодня
+        </button>
+      )}
+
       <button onClick={() => onRemoveTask(task.id)}>Удалить</button>
-    </div>
+    </li>
   );
 }
 

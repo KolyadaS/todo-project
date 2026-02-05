@@ -21,6 +21,7 @@ function TaskView({
 
       <TaskList
         tasks={tasks}
+        actions={config.actions}
         active
         onUpdateTaskStatus={onUpdateTaskStatus}
         onRemoveTask={onRemoveTask}

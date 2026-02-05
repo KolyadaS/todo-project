@@ -7,6 +7,7 @@ import Layout from "./layouts/MainLayout/Layout";
 import TaskView from "./components/TaskView/TaskView";
 import { TASK_STATUS } from "../src/constants/taskStatus";
 import ViewSwitcher from "./components/ViewSwitcher/ViewSwitcher";
+import { VIEW_CONFIG } from "./constants/viewConfig";
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -61,11 +62,13 @@ function App() {
     );
   };
 
-  const viewTitles = {
-    [TASK_STATUS.TODAY]: "Сегодня",
-    [TASK_STATUS.LATER]: "Не сегодня",
-    [TASK_STATUS.COMPLETED]: "Готово",
-  };
+  // const viewTitles = {
+  //   [TASK_STATUS.TODAY]: "Сегодня",
+  //   [TASK_STATUS.LATER]: "Не сегодня",
+  //   [TASK_STATUS.COMPLETED]: "Готово",
+  // };
+
+  const viewConfig = VIEW_CONFIG[currentView];
 
   return (
     <Layout>
@@ -77,17 +80,16 @@ function App() {
         ></ViewSwitcher>
 
         <TaskView
-          title={viewTitles[currentView]}
+          config={viewConfig}
+          // title={viewTitles[currentView]}
           tasks={visibleTasks}
-          view={currentView}
+          // view={currentView}
           onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
           onUpdate={updateTaskText}
           onClearCompleted={clearCompleted}
         >
-          {currentView === TASK_STATUS.TODAY && (
-            <TaskInput onAddTask={addTask}></TaskInput>
-          )}
+          {viewConfig.showInput && <TaskInput onAddTask={addTask}></TaskInput>}
         </TaskView>
       </Main>
     </Layout>

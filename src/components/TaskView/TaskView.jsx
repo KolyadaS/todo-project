@@ -3,9 +3,10 @@ import TaskList from "../TaskList/TaskList";
 import { TASK_STATUS } from "../../constants/taskStatus";
 
 function TaskView({
-  title,
+  // title,
+  config,
   tasks,
-  view,
+  // view,
   onRemoveTask,
   onUpdate,
   onClearCompleted,
@@ -14,9 +15,9 @@ function TaskView({
 }) {
   return (
     <div className="task-view">
-      <h2>{title}</h2>
+      <h2>{config.title}</h2>
 
-      {view === TASK_STATUS.COMPLETED && tasks.length > 0 && (
+      {config.showClearCompleted && tasks.length > 0 && (
         <button onClick={onClearCompleted}>Удалить выполненные</button>
       )}
 
@@ -25,14 +26,8 @@ function TaskView({
         active
         onUpdateTaskStatus={onUpdateTaskStatus}
         onRemoveTask={onRemoveTask}
-        editable={view === TASK_STATUS.TODAY}
-        emptyText={
-          view === TASK_STATUS.TODAY
-            ? "На сегодня задач нет"
-            : view === TASK_STATUS.COMPLETED
-            ? "Пока ничего не выполнено"
-            : "Задач нет"
-        }
+        editable={config.editable}
+        emptyText={config.emptyText}
         onUpdate={onUpdate}
       ></TaskList>
 

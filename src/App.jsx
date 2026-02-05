@@ -62,12 +62,6 @@ function App() {
     );
   };
 
-  // const viewTitles = {
-  //   [TASK_STATUS.TODAY]: "Сегодня",
-  //   [TASK_STATUS.LATER]: "Не сегодня",
-  //   [TASK_STATUS.COMPLETED]: "Готово",
-  // };
-
   const viewConfig = VIEW_CONFIG[currentView];
 
   return (
@@ -81,9 +75,7 @@ function App() {
 
         <TaskView
           config={viewConfig}
-          // title={viewTitles[currentView]}
           tasks={visibleTasks}
-          // view={currentView}
           onUpdateTaskStatus={updateTaskStatus}
           onRemoveTask={removeTask}
           onUpdate={updateTaskText}

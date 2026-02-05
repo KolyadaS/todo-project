@@ -3,10 +3,8 @@ import TaskList from "../TaskList/TaskList";
 import { TASK_STATUS } from "../../constants/taskStatus";
 
 function TaskView({
-  // title,
   config,
   tasks,
-  // view,
   onRemoveTask,
   onUpdate,
   onClearCompleted,

@@ -1,0 +1,21 @@
+:root {
+  /* background */
+  --bg-app: #f4f1ec;
+  --bg-card: #ffffff;
+  --bg-muted: #faf7f2;
+
+  /* text */
+  --text-primary: #2e2e2e;
+  --text-secondary: #6b6b6b;
+  --text-muted: #a3a3a3;
+
+  /* accents */
+  --accent-primary: #7c8a6a;
+  --accent-primary-hover: #6e7b5e;
+
+  --accent-secondary: #5e6f82;
+  --accent-secondary-hover: #526273;
+
+  --accent-danger: #c36a4a;
+  --accent-danger-hover: #ad5f42;
+}

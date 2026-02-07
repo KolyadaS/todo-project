@@ -1,6 +1,6 @@
 import "./TaskView.css";
 import TaskList from "../TaskList/TaskList";
-import { TASK_STATUS } from "../../constants/taskStatus";
+import Button from "../Button/Button";
 
 function TaskView({
   config,
@@ -16,7 +16,9 @@ function TaskView({
       <h2>{config.title}</h2>
 
       {config.showClearCompleted && tasks.length > 0 && (
-        <button onClick={onClearCompleted}>Удалить выполненные</button>
+        <Button variant="primary" onClick={onClearCompleted}>
+          Удалить выполненные
+        </Button>
       )}
 
       <TaskList

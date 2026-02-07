@@ -1,3 +1,4 @@
+import Button from "../Button/Button";
 import "./TaskInput.css";
 import { useState } from "react";
 
@@ -17,7 +18,9 @@ function TaskInput({ onAddTask }) {
   return (
     <div>
       <input value={task} onChange={setTaskName}></input>
-      <button onClick={handleCreateBtn}>Создать</button>
+      <Button variant="danger" onClick={handleCreateBtn}>
+        Создать
+      </Button>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./TaskItem.css";
 import { TASK_STATUS } from "../../constants/taskStatus";
+import Button from "../Button/Button";
 
 function TaskItem({
   task,
@@ -64,18 +65,26 @@ function TaskItem({
       )}
 
       {actions.includes("moveToLater") && (
-        <button onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.LATER)}>
+        <Button
+          variant="primary"
+          onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.LATER)}
+        >
           Не сегодня
-        </button>
+        </Button>
       )}
 
       {actions.includes("moveToToday") && (
-        <button onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.TODAY)}>
+        <Button
+          variant="primary"
+          onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.TODAY)}
+        >
           Сегодня
-        </button>
+        </Button>
       )}
 
-      <button onClick={() => onRemoveTask(task.id)}>Удалить</button>
+      <Button variant="danger" onClick={() => onRemoveTask(task.id)}>
+        Удалить
+      </Button>
     </li>
   );
 }

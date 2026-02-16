@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="42px" height="42px"  xml:space="preserve">
+
+
+<g id="Today_Icon_53_">
+	<path fill="none" stroke="#50BC93" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M40,39
+		c0,0.552-0.448,1-1,1h-36c-0.552,0-1-0.448-1-1v-32c0-0.552,0.448-1,1-1h36c0.552,0,1,0.448,1,1V8z"/>
+	
+		<line fill="none" stroke="#50BC93" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="3" y1="17" x2="39" y2="17"/>
+	
+		<line fill="none" stroke="#50BC93" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="9" y1="2" x2="9" y2="10"/>
+	
+		<line fill="none" stroke="#50BC93" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="32.8" y1="2" x2="32.8" y2="10"/>
+	
+</g>
+
+</svg>

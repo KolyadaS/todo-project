@@ -1,4 +1,9 @@
 .btn {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   border: none;
   border-radius: 8px;
   padding: 6px 12px;

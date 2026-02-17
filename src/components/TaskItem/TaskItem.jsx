@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./TaskItem.css";
 import { TASK_STATUS } from "../../constants/taskStatus";
 import Button from "../Button/Button";
+import Icon from "../Icon/Icon";
+import { ICONS } from "../../constants/icons";
 
 function TaskItem({
   task,
@@ -27,64 +29,76 @@ function TaskItem({
 
   return (
     <li className="task-item">
-      <input
-        id={`task-${task.id}`}
-        type="checkbox"
-        checked={task.status === TASK_STATUS.COMPLETED}
-        onChange={() =>
-          onUpdateTaskStatus(
-            task.id,
-            task.status === TASK_STATUS.COMPLETED
-              ? TASK_STATUS.TODAY
-              : TASK_STATUS.COMPLETED
-          )
-        }
-      />
-
-      {isEditing && editable ? (
+      <div className="task-item__checkbox-wrapper">
         <input
-          value={value}
-          autoFocus
-          onChange={(e) => setValue(e.target.value)}
-          onBlur={save}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") save();
-            if (e.key === "Escape") cancel();
-          }}
-        ></input>
-      ) : (
-        <span
-          onDoubleClick={() => {
-            if (editable) {
-              setIsEditing(true);
-            }
-          }}
-        >
-          {task.text}
-        </span>
-      )}
+          id={`task-${task.id}`}
+          type="checkbox"
+          checked={task.status === TASK_STATUS.COMPLETED}
+          onChange={() =>
+            onUpdateTaskStatus(
+              task.id,
+              task.status === TASK_STATUS.COMPLETED
+                ? TASK_STATUS.TODAY
+                : TASK_STATUS.COMPLETED
+            )
+          }
+        />
 
-      {actions.includes("moveToLater") && (
-        <Button
-          variant="primary"
-          onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.LATER)}
-        >
-          Не сегодня
+        {isEditing && editable ? (
+          <input
+            value={value}
+            autoFocus
+            onChange={(e) => setValue(e.target.value)}
+            onBlur={save}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") save();
+              if (e.key === "Escape") cancel();
+            }}
+          ></input>
+        ) : (
+          <span
+            onDoubleClick={() => {
+              if (editable) {
+                setIsEditing(true);
+              }
+            }}
+          >
+            {task.text}
+          </span>
+        )}
+      </div>
+
+      <div className="task-items__btns-wrapper">
+        {actions.includes("moveToLater") && (
+          <Button
+            variant="primary"
+            onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.LATER)}
+          >
+            <Icon
+              src={ICONS.LATER}
+              size={14}
+              alt="Переместить в Не сегодня"
+            ></Icon>
+          </Button>
+        )}
+
+        {actions.includes("moveToToday") && (
+          <Button
+            variant="primary"
+            onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.TODAY)}
+          >
+            <Icon
+              src={ICONS.TODAY}
+              size={14}
+              alt="Переместить в Сегодня"
+            ></Icon>
+          </Button>
+        )}
+
+        <Button variant="danger" onClick={() => onRemoveTask(task.id)}>
+          <Icon src={ICONS.REMOVE} size={14} alt="Удалить"></Icon>
         </Button>
-      )}
-
-      {actions.includes("moveToToday") && (
-        <Button
-          variant="primary"
-          onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.TODAY)}
-        >
-          Сегодня
-        </Button>
-      )}
-
-      <Button variant="danger" onClick={() => onRemoveTask(task.id)}>
-        Удалить
-      </Button>
+      </div>
     </li>
   );
 }

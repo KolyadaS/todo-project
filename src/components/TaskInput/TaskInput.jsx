@@ -1,4 +1,6 @@
+import { ICONS } from "../../constants/icons";
 import Button from "../Button/Button";
+import Icon from "../Icon/Icon";
 import "./TaskInput.css";
 import { useState } from "react";
 
@@ -19,7 +21,7 @@ function TaskInput({ onAddTask }) {
     <div>
       <input value={task} onChange={setTaskName}></input>
       <Button variant="danger" onClick={handleCreateBtn}>
-        Создать
+        <Icon src={ICONS.ADD} size={20} alt="Создать задачу"></Icon>
       </Button>
     </div>
   );

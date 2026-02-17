@@ -1,9 +1,7 @@
 import "./ViewSwitcher.css";
 import { TASK_STATUS } from "../../constants/taskStatus";
 import Button from "../Button/Button";
-import todayIcon from "../../assets/today.svg";
-import laterIcon from "../../assets/later.svg";
-import doneIcon from "../../assets/done.svg";
+import { ICONS } from "../../constants/icons";
 import Icon from "../Icon/Icon";
 
 function ViewSwitcher({ currentView, onChange }) {
@@ -14,7 +12,7 @@ function ViewSwitcher({ currentView, onChange }) {
         onClick={() => onChange(TASK_STATUS.TODAY)}
         disabled={currentView === TASK_STATUS.TODAY}
       >
-        <Icon src={todayIcon} size={20}></Icon>
+        <Icon src={ICONS.TODAY} size={20} alt="Кнопка Сегодня"></Icon>
         Сегодня
       </Button>
       <Button
@@ -22,7 +20,7 @@ function ViewSwitcher({ currentView, onChange }) {
         onClick={() => onChange(TASK_STATUS.LATER)}
         disabled={currentView === TASK_STATUS.LATER}
       >
-        <Icon src={laterIcon} size={20}></Icon>
+        <Icon src={ICONS.LATER} size={20} alt="Кнопка Не сегодня"></Icon>
         Не сегодня
       </Button>
       <Button
@@ -30,7 +28,7 @@ function ViewSwitcher({ currentView, onChange }) {
         onClick={() => onChange(TASK_STATUS.COMPLETED)}
         disabled={currentView === TASK_STATUS.COMPLETED}
       >
-        <Icon src={doneIcon} size={20}></Icon>
+        <Icon src={ICONS.DONE} size={20} alt="Кнопка Готово"></Icon>
         Готово
       </Button>
     </div>

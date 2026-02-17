@@ -5,7 +5,8 @@
 
 
 <g id="Done_icon">
-	
+
+<circle cx="21" cy="21" r="20" fill="#7c8a6a" />
 		<circle fill="none" stroke="#FFFFFF" stroke-width="3.92" stroke-linecap="round" stroke-miterlimit="10" cx="21" cy="21" r="19"/>
 	
 		<polyline fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="

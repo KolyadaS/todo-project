@@ -1,16 +1,76 @@
-# React + Vite
+# Todo Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Простое веб-приложение для управления задачами.  
+Позволяет добавлять задачи, редактировать их, отмечать выполненными и перемещать между списками.
 
-Currently, two official plugins are available:
+Проект написан в рамках практики фронтенд-разработки с использованием React и современного стека инструментов.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Демо
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+🔗 Открыть приложение: https://todo-project.neocities.org/
+![Экран Сегодня](screenshots/TodayView.png)
+![Экран Не сегодня](screenshots/LaterView.png)
+![Экран Готово](screenshots/DoneView.png)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Возможности
+
+- добавление новой задачи
+- редактирование текста задачи
+- удаление задачи
+- отметка задачи как выполненной
+- перемещение задач между списками
+- разделение задач по статусам:
+  - Сегодня
+  - Не сегодня
+  - Готово
+- очистка списка выполненных задач
+- сохранение задач в `localStorage` (данные не пропадают после перезагрузки страницы)
+- простые UI-анимации и иконки
+
+---
+
+## Стек технологий
+
+- **React**
+- **JavaScript (ES6+)**
+- **Vite**
+- **CSS**
+- **localStorage API**
+
+---
+
+## Структура проекта
+src/
+components/ # React-компоненты
+Button/
+Icon/
+TaskItem/
+TaskInput/
+TaskView/
+ViewSwitcher/
+
+constants/ # конфигурации и константы
+icons.js
+taskStatus.js
+viewConfig.js
+
+layouts/ # layout-компоненты
+Header/
+Main/
+MainLayout/
+
+styles/ # общие стили и переменные
+
+---
+
+## Возможные улучшения
+
+- drag & drop для задач
+- фильтрация задач
+- тёмная тема
+- адаптивная версия для мобильных устройств
+- сохранение задач на сервере

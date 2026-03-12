@@ -5,19 +5,19 @@
 
 
 <g id="Delete_icon">
-	<path fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M31,45h-19
+	<path fill="none" stroke="#F28B82" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M31,45h-19
 		c-3,0-6-3-6-7v-27c0-1,0-1,1-1h28c1,0,1-0,1,1v28
 		C37,43,35,46,31,45z"/>
 	
-		<line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="2" y1="10" x2="40" y2="10"/>
-	<path fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M28,8
+		<line fill="none" stroke="#F28B82" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="2" y1="10" x2="40" y2="10"/>
+	<path fill="none" stroke="#FF9AA2" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M28,8
 		c0,0-0,1-1,1h-12c-0,0-1-0-1-1v-5c0-0,0-1,1-1h12c0,0,1,0,1,1V8z"/>
 	
-		<line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="13" y1="18" x2="13" y2="36"/>
+		<line fill="none" stroke="#F28B82" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="13" y1="18" x2="13" y2="36"/>
 	
-		<line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="21" y1="18" x2="21" y2="36"/>
+		<line fill="none" stroke="#F28B82" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="21" y1="18" x2="21" y2="36"/>
 	
-		<line fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="29" y1="18" x2="29" y2="36"/>
+		<line fill="none" stroke="#F28B82" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="29" y1="18" x2="29" y2="36"/>
 </g>
 
 </svg>

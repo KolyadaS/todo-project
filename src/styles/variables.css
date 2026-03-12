@@ -1,8 +1,8 @@
 :root {
   /* background */
-  --bg-app: #f4f1ec;
+  --bg-app: #f5f9ff;
   --bg-card: #ffffff;
-  --bg-muted: #faf7f2;
+  --bg-muted: #edf3f8;
 
   /* text */
   --text-primary: #2e2e2e;
@@ -10,12 +10,12 @@
   --text-muted: #a3a3a3;
 
   /* accents */
-  --accent-primary: #7c8a6a;
+  --accent-primary: #5da9e9;
   --accent-primary-hover: #6e7b5e;
 
-  --accent-secondary: #5e6f82;
+  --accent-secondary: #a9f1b4;
   --accent-secondary-hover: #526273;
 
-  --accent-danger: #c36a4a;
+  --accent-danger: #f28b82;
   --accent-danger-hover: #ad5f42;
 }

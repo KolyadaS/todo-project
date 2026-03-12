@@ -1,0 +1,10 @@
+.task-input {
+  display: flex;
+  gap: 5px;
+}
+
+.task-input input {
+  width: 100%;
+  border-style: dotted;
+  border-color: var(--accent-danger);
+}

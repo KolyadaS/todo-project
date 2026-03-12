@@ -1,36 +1,26 @@
 .task-item {
-  border: 1px solid sandybrown;
+  border-bottom: 1px solid var(-bg-muted);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .task-item input {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 30px;
-  height: 30px;
   margin: 0;
   cursor: pointer;
-  background-image: url("../../assets/unchecked.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.task-item input:checked {
-  background-image: url("../../assets/checked.svg");
+  accent-color: var(--accent-secondary);
 }
 
 .task-item__checkbox-wrapper {
-  border: 1px solid red;
   display: flex;
   gap: 5px;
   align-items: center;
 }
 
 .task-items__btns-wrapper {
-  border: 1px solid red;
   display: flex;
   gap: 5px;
 }

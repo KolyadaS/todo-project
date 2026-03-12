@@ -1,5 +1,12 @@
 .view-switcher {
-  /* border: 1px solid red; */
+  border: 1px solid var(--accent-secondary);
+  border-radius: 15px 10px 0 0;
   display: flex;
   justify-content: space-between;
+  padding: 5px 10px;
+}
+
+.view-switcher > * {
+  width: 30%;
+  border: none;
 }

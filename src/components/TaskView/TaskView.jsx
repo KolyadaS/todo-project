@@ -16,7 +16,7 @@ function TaskView({
       <h2>{config.title}</h2>
 
       {config.showClearCompleted && tasks.length > 0 && (
-        <Button variant="primary" onClick={onClearCompleted}>
+        <Button onClick={onClearCompleted} title="Удалить выполненные задачи">
           Удалить выполненные
         </Button>
       )}

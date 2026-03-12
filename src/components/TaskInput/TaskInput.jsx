@@ -18,10 +18,14 @@ function TaskInput({ onAddTask }) {
     setTask("");
   };
   return (
-    <div>
-      <input value={task} onChange={setTaskName}></input>
-      <Button variant="danger" onClick={handleCreateBtn}>
-        <Icon src={ICONS.ADD} size={20} alt="Создать задачу"></Icon>
+    <div className="task-input">
+      <input
+        value={task}
+        onChange={setTaskName}
+        title="Введите название задачи"
+      ></input>
+      <Button onClick={handleCreateBtn} title="Создать задачу">
+        <Icon src={ICONS.ADD} size={14} alt="Создать задачу"></Icon>
       </Button>
     </div>
   );

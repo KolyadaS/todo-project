@@ -1,11 +1,9 @@
 .layout {
   max-width: 480px;
   min-height: 200px;
-  border: 1px solid red;
-  color: #2e2e2e;
-  background-color: #f4f1ec;
-  /* background-color: #faf7f2; */
-  border-radius: 5px;
-  margin: auto;
+  border: 1px dotted var(--accent-secondary);
+  background-color: var(--bg-card);
+  border-radius: 25px;
+  margin: 30px auto;
   padding: 20px;
 }

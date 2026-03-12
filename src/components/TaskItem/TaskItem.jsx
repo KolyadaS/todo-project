@@ -42,6 +42,7 @@ function TaskItem({
                 : TASK_STATUS.COMPLETED
             )
           }
+          title="Поставить/снять галочку"
         />
 
         {isEditing && editable ? (
@@ -71,8 +72,8 @@ function TaskItem({
       <div className="task-items__btns-wrapper">
         {actions.includes("moveToLater") && (
           <Button
-            variant="primary"
             onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.LATER)}
+            title="Переместить в список 'Не сегодня'"
           >
             <Icon
               src={ICONS.LATER}
@@ -84,8 +85,8 @@ function TaskItem({
 
         {actions.includes("moveToToday") && (
           <Button
-            variant="primary"
             onClick={() => onUpdateTaskStatus(task.id, TASK_STATUS.TODAY)}
+            title="Переместить в список 'Сегодня'"
           >
             <Icon
               src={ICONS.TODAY}
@@ -95,7 +96,7 @@ function TaskItem({
           </Button>
         )}
 
-        <Button variant="danger" onClick={() => onRemoveTask(task.id)}>
+        <Button onClick={() => onRemoveTask(task.id)} title="Удалить задачу">
           <Icon src={ICONS.REMOVE} size={14} alt="Удалить"></Icon>
         </Button>
       </div>

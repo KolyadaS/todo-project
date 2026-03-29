@@ -43,30 +43,6 @@
 
 ---
 
-## Структура проекта
-src/
-components/ # React-компоненты
-Button/
-Icon/
-TaskItem/
-TaskInput/
-TaskView/
-ViewSwitcher/
-
-constants/ # конфигурации и константы
-icons.js
-taskStatus.js
-viewConfig.js
-
-layouts/ # layout-компоненты
-Header/
-Main/
-MainLayout/
-
-styles/ # общие стили и переменные
-
----
-
 ## Возможные улучшения
 
 - drag & drop для задач
